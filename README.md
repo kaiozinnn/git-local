@@ -1,24 +1,24 @@
-# 🧩 Aula Prática – Git Local (sem GitHub)
+# 🧩 Aula Prática – Git Local + GitHub + GitFluence
 
-## 🎯 Objetivo
-Aprender a utilizar o **Git** localmente para versionar projetos, criando commits, branches e manipulando o histórico de forma segura.
+## 🎯 Objetivos
+
+- Aprender a utilizar o **Git** localmente para versionar projetos, criar commits, branches e manipular o histórico.
+- Entender como integrar o repositório local ao **GitHub** e colaborar com outras pessoas usando **Pull Requests** e **GitFluence**.
 
 ---
 
-## 🧱 1. Configuração inicial
-
-Esses comandos configuram o nome e o e-mail do usuário (necessário para registrar os commits).
+## 🧱 1. Configuração Inicial
 
 ```bash
 git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@exemplo.com"
-git config --global core.editor "code --wait"   # Define o VS Code como editor padrão (opcional)
-git config --list                                # Verifica as configurações atuais
+git config --global core.editor "code --wait"
+git config --list
 ```
 
 ---
 
-## 📂 2. Criar e iniciar um repositório
+## 📂 2. Criar e Iniciar um Repositório
 
 ```bash
 mkdir meu_projeto
@@ -26,61 +26,45 @@ cd meu_projeto
 git init
 ```
 
-> O comando `git init` cria um repositório local, gerando a pasta oculta `.git`.
-
 ---
 
-## 🏷️ 3. Alterar a branch padrão de `master` para `main`
-
-Por padrão, o Git pode criar a branch inicial como **master**.  
-Para padronizar e seguir boas práticas, altere para **main**:
+## 🏷️ 3. Alterar a Branch Padrão para `main`
 
 ```bash
 git branch -m master main
-```
-
-Se quiser definir **main** como padrão para novos repositórios:
-
-```bash
 git config --global init.defaultBranch main
 ```
 
 ---
 
-## 📄 4. Criar arquivos e verificar status
+## 📄 4. Criar Arquivos e Verificar Status
 
 ```bash
 echo "Meu primeiro arquivo" > readme.txt
 git status
 ```
 
-> `git status` mostra arquivos novos, modificados ou prontos para commit.
-
 ---
 
-## 🧺 5. Adicionar arquivos à área de staging
+## 🧺 5. Adicionar Arquivos à Área de Staging
 
 ```bash
-git add readme.txt       # adiciona um arquivo específico
-git add .                # adiciona todos os arquivos do diretório
+git add readme.txt
+git add .
 git status
 ```
 
-> A área de staging é onde os arquivos ficam “preparados” antes do commit.
-
 ---
 
-## 💾 6. Fazer o primeiro commit
+## 💾 6. Fazer o Primeiro Commit
 
 ```bash
 git commit -m "Primeiro commit - adiciona readme.txt"
 ```
 
-> Um commit é o “salvamento” oficial no histórico do repositório.
-
 ---
 
-## 🔍 7. Ver histórico e detalhes
+## 🔍 7. Ver Histórico e Detalhes
 
 ```bash
 git log
@@ -88,48 +72,39 @@ git log --oneline
 git show
 ```
 
-> Use `--oneline` para visualizar um resumo simplificado.
-
 ---
 
-## ✏️ 8. Editar arquivos e registrar mudanças
+## ✏️ 8. Editar Arquivos e Registrar Mudanças
 
 ```bash
 echo "Adicionando nova linha" >> readme.txt
-git status
 git diff
 git add readme.txt
 git commit -m "Atualiza readme.txt com nova linha"
 ```
 
-> `git diff` mostra as diferenças entre a versão atual e a anterior.
-
 ---
 
-## ♻️ 9. Desfazer mudanças
+## ♻️ 9. Desfazer Mudanças
 
 ```bash
-git restore readme.txt              # descarta mudanças não adicionadas
-git restore --staged readme.txt     # remove da área de staging
+git restore readme.txt
+git restore --staged readme.txt
 ```
-
-> Ideal para corrigir erros antes de um commit.
 
 ---
 
-## 🌿 10. Criar e alternar entre branches
+## 🌿 10. Criar e Alternar Entre Branches
 
 ```bash
-git branch                         # lista branches
-git branch nova_funcionalidade     # cria nova branch
-git switch nova_funcionalidade     # muda para ela
+git branch
+git branch nova_funcionalidade
+git switch nova_funcionalidade
 ```
-
-> Cada branch é uma linha independente de desenvolvimento.
 
 ---
 
-## 🧬 11. Fazer commits em outra branch
+## 🧬 11. Fazer Commits em Outra Branch
 
 ```bash
 echo "Nova feature" > feature.txt
@@ -139,18 +114,17 @@ git commit -m "Adiciona nova feature"
 
 ---
 
-## 🔀 12. Voltar e mesclar mudanças
+## 🔀 12. Voltar e Mesclar Mudanças
 
 ```bash
 git switch main
+git pull origin main
 git merge nova_funcionalidade
 ```
 
-> Junta as alterações da branch `nova_funcionalidade` na `main`.
-
 ---
 
-## 🗑️ 13. Excluir branches locais
+## 🗑️ 13. Excluir Branches Locais
 
 ```bash
 git branch -d nova_funcionalidade
@@ -158,17 +132,15 @@ git branch -d nova_funcionalidade
 
 ---
 
-## 🧹 14. Ignorar arquivos com `.gitignore`
+## 🧹 14. Ignorar Arquivos com `.gitignore`
 
-Crie um arquivo chamado `.gitignore` e adicione:
+Conteúdo sugerido:
 
 ```
 *.log
 *.tmp
 node_modules/
 ```
-
-Depois:
 
 ```bash
 git add .gitignore
@@ -177,7 +149,7 @@ git commit -m "Adiciona arquivo .gitignore"
 
 ---
 
-## 🧠 15. Visualizar informações úteis
+## 🧠 15. Visualizar Informações Úteis
 
 ```bash
 git status
@@ -186,11 +158,9 @@ git diff
 git show HEAD
 ```
 
-> `--graph` mostra o histórico com ramificações visualmente.
-
 ---
 
-## 💡 16. Exemplo de fluxo completo
+## 💡 16. Exemplo de Fluxo Completo
 
 ```bash
 git init
@@ -209,12 +179,70 @@ git log --oneline --graph
 
 ---
 
-## 📘 Créditos
+## 🌐 17. Integração com GitHub
 
-Material criado para fins educacionais na aula prática de **Git Local**,  
-ministrada por *Anderson R. M. Gomes* 🧑‍🏫
+### 🔁 Fork e Clone
+
+1. Faça fork do repositório original no GitHub:  
+   `https://github.com/andersonrmgomes/git-local`
+2. Clone o fork:
+
+```bash
+git clone https://github.com/SEU_USUARIO/git-local
+cd git-local
+git checkout -b documentacao-colaboracao
+```
 
 ---
 
-**🚀 Próximos passos:**  
-Na próxima aula, você aprenderá a conectar este repositório local ao GitHub com os comandos `git remote`, `git push` e `git pull`.
+### 🤖 Uso do GitFluence
+
+Acesse [GitFluence](https://www.gitfluence.com) e digite comandos como:
+
+| Descrição | Comando |
+|----------|---------|
+| Criar e mudar para nova branch | `git checkout -b nome-da-branch` |
+| Ver branches locais e remotos | `git branch -a` |
+| Enviar branch remoto | `git push -u origin documentacao-colaboracao` |
+
+---
+
+### 📝 Editar e Subir Documentação
+
+```bash
+# Edite README.md ou outros arquivos
+git add .
+git commit -m "feat: adiciona documentação de integração com GitHub"
+git push origin documentacao-colaboracao
+```
+
+---
+
+### 📤 Abrir Pull Request
+
+1. Acesse seu fork no GitHub.
+2. Clique em **Compare & pull request**.
+3. Envie o PR do seu branch para o `main` do repositório original.
+
+---
+
+### 👥 Adicionar Colaboradores ao Repositório Privado
+
+1. Vá em **Settings > Access > Collaborators**.
+2. Clique em **Add people**.
+3. Pesquise o usuário e envie o convite.
+4. O colaborador deve aceitar para ter acesso ao repositório.
+
+---
+
+## 🧩 Dica Final
+
+Use o GitFluence para aprender comandos Git com base em frases simples.  
+Exemplo: “delete a local branch” → `git branch -d nome-da-branch`
+
+---
+
+## 📘 Créditos
+
+Material elaborado por *Anderson R. M. Gomes* 🧑‍🏫  
+Atualizado com integração GitHub e GitFluence por Kaio Vinícius
